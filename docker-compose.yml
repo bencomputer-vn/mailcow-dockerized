@@ -3,7 +3,7 @@ services:
   unbound-mailcow:
     image: ghcr.io/mailcow/unbound:1.24
     environment:
-      - TZ=${TZ}
+      - TZ=Asia/Ho_Chi_Minh
       - SKIP_UNBOUND_HEALTHCHECK=${SKIP_UNBOUND_HEALTHCHECK:-n}
     volumes:
       - ./data/hooks/unbound:/hooks:Z
@@ -27,7 +27,7 @@ services:
       - mysql-socket-vol-1:/var/run/mysqld/
       - ./data/conf/mysql/:/etc/mysql/conf.d/:ro,Z
     environment:
-      - TZ=${TZ}
+      - TZ=Asia/Ho_Chi_Minh
       - MYSQL_ROOT_PASSWORD=${DBROOT}
       - MYSQL_DATABASE=${DBNAME}
       - MYSQL_USER=${DBUSER}
@@ -53,7 +53,7 @@ services:
     ports:
       - "${REDIS_PORT:-127.0.0.1:7654}:6379"
     environment:
-      - TZ=${TZ}
+      - TZ=Asia/Ho_Chi_Minh
       - REDISPASS=${REDISPASS}
       - REDISMASTERPASS=${REDISMASTERPASS:-}
     sysctls:
@@ -73,7 +73,7 @@ services:
     dns:
       - 172.30.100.254
     environment:
-      - TZ=${TZ}
+      - TZ=Asia/Ho_Chi_Minh
       - SKIP_CLAMD=${SKIP_CLAMD:-n}
     volumes:
       - ./data/conf/clamav/:/etc/clamav/:Z
@@ -90,7 +90,7 @@ services:
       - dovecot-mailcow
       - clamd-mailcow
     environment:
-      - TZ=${TZ}
+      - TZ=Asia/Ho_Chi_Minh
       - IPV4_NETWORK=172.30.100
       - IPV6_NETWORK=${IPV6_NETWORK:-fd4d:6169:6c63:6f77::/64}
       - REDIS_SLAVEOF_IP=${REDIS_SLAVEOF_IP:-}
@@ -118,7 +118,7 @@ services:
 
   php-fpm-mailcow:
     image: ghcr.io/mailcow/phpfpm:1.93
-    command: "php-fpm -d date.timezone=${TZ} -d expose_php=0"
+    command: "php-fpm -d date.timezone=Asia/Ho_Chi_Minh -d expose_php=0"
     depends_on:
       - redis-mailcow
     volumes:
@@ -154,7 +154,7 @@ services:
       - REDIS_SLAVEOF_PORT=${REDIS_SLAVEOF_PORT:-}
       - REDISPASS=${REDISPASS}
       - LOG_LINES=${LOG_LINES:-9999}
-      - TZ=${TZ}
+      - TZ=Asia/Ho_Chi_Minh
       - DBNAME=${DBNAME}
       - DBUSER=${DBUSER}
       - DBPASS=${DBPASS}
@@ -199,7 +199,7 @@ services:
         aliases:
           - phpfpm
 
-  # (Cắt bớt ví dụ - bạn gửi full thì sẽ làm đủ toàn bộ như trên.)
+  # ... (Các service khác: bạn chỉ cần làm tương tự: thêm - TZ=Asia/Ho_Chi_Minh vào environment của từng service) ...
 
 networks:
   mailcow-network:

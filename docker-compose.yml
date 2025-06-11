@@ -28,10 +28,10 @@ services:
       - ./data/conf/mysql/:/etc/mysql/conf.d/:ro,Z
     environment:
       - TZ=Asia/Ho_Chi_Minh
-      - MYSQL_ROOT_PASSWORD=${DBROOT}
-      - MYSQL_DATABASE=${DBNAME}
-      - MYSQL_USER=${DBUSER}
-      - MYSQL_PASSWORD=${DBPASS}
+      - MYSQL_ROOT_PASSWORD=ABC
+      - MYSQL_DATABASE=ABC
+      - MYSQL_USER=ABC
+      - MYSQL_PASSWORD=ABC
       - MYSQL_INITDB_SKIP_TZINFO=1
     restart: always
     ports:

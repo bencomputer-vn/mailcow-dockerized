@@ -155,9 +155,9 @@ services:
       - REDISPASS=ABC
       - LOG_LINES=${LOG_LINES:-9999}
       - TZ=Asia/Ho_Chi_Minh
-      - DBNAME=${DBNAME}
-      - DBUSER=${DBUSER}
-      - DBPASS=${DBPASS}
+      - DBNAME=ABC
+      - DBUSER=ABC
+      - DBPASS=ABC
       - MAILCOW_HOSTNAME=${MAILCOW_HOSTNAME}
       - MAILCOW_PASS_SCHEME=${MAILCOW_PASS_SCHEME:-BLF-CRYPT}
       - IMAP_PORT=${IMAP_PORT:-143}

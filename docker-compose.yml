@@ -152,7 +152,7 @@ services:
     environment:
       - REDIS_SLAVEOF_IP=${REDIS_SLAVEOF_IP:-}
       - REDIS_SLAVEOF_PORT=${REDIS_SLAVEOF_PORT:-}
-      - REDISPASS=${REDISPASS}
+      - REDISPASS=ABC
       - LOG_LINES=${LOG_LINES:-9999}
       - TZ=Asia/Ho_Chi_Minh
       - DBNAME=${DBNAME}

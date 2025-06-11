@@ -158,7 +158,7 @@ services:
       - DBNAME=ABC
       - DBUSER=ABC
       - DBPASS=ABC
-      - MAILCOW_HOSTNAME=${MAILCOW_HOSTNAME}
+      - mail.ben.com.vn=${mail.ben.com.vn}
       - MAILCOW_PASS_SCHEME=${MAILCOW_PASS_SCHEME:-BLF-CRYPT}
       - IMAP_PORT=${IMAP_PORT:-143}
       - IMAPS_PORT=${IMAPS_PORT:-993}
